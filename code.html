@@ -1,0 +1,39 @@
+<html>
+Note: If the messages number is higher than 1,500, instead of updating the number every second it will update every 10 seconds.<div style="text-align: center;">
+<span style="color: red; font-size: 40pt;">The user has
+</span><br />
+<span style="color: red; font-size: 40pt;"><br /></span>
+<span style="color: red; font-size: 40pt;"><br /></span>
+<br />
+<div id="demo">
+</div>
+</div>
+<div style="text-align: center;">
+<span style="color: red; font-size: 40pt;">messages right now</span> <br />
+<a href="http://scratchmessages.blogspot.com/">Click here to choose another username
+</a>
+
+
+
+<script>
+var user = prompt("Enter a username (without @  - not case sensitive)", "World_Languages");
+(function(){
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", 'https://api.scratch.mit.edu/users/' + user + '/messages/count', false );
+xmlHttp.send( null );
+var request = xmlHttp.responseText;
+var parsedData = JSON.parse(request);
+var a = (parsedData.count);
+if (a>1500) {var interval = 10000;} else {var interval = 1250;}
+var b = numberWithCommas(a);
+var result = b.fontsize(20);
+document.getElementById("demo").innerHTML = result;
+document.title = b + ' messages';
+    setTimeout(arguments.callee, interval);
+})();
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+</script> </div>
+</html>

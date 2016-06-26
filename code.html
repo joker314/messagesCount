@@ -17,7 +17,7 @@ Note: If the messages number is higher than 1,500, instead of updating the numbe
 
 
 <script>
-var x = prompt("Enter a username (without @  - not case sensitive)", "World_Languages");
+var x = prompt("Enter a username (not case sensitive)", "World_Languages");
 var user = (x[0]=="@")?x.substr(1):x;
 document.getElementById("username").innerHTML = user;
 (function(){

@@ -16,7 +16,8 @@ Note: If the messages number is higher than 1,500, instead of updating the numbe
 
 
 <script>
-var user = prompt("Enter a username (without @  - not case sensitive)", "World_Languages");
+var x = prompt("Enter a username (without @  - not case sensitive)", "World_Languages");
+var user = (x[0]=="@")?x.substr(1):x;
 (function(){
 var xmlHttp = new XMLHttpRequest();
 xmlHttp.open( "GET", 'https://api.scratch.mit.edu/users/' + user + '/messages/count', false );
